@@ -9,17 +9,19 @@ class Card extends Component {
             color: "BLUE",
             pluralNoun: ""
         }
+        this.handleInputChage= this.handleInputChage.bind(this); //binds function to our constructor, so it knows state
     }
 
-    handleInputChage() {
-        this.setState({ color: "red" })
+    handleInputChage(event) {
+        console.log("this is the value", event.target.value); //console logs the value typed into input
+        this.setState({ color: event.target.value }) //sets state to what is typed into input
     }
 
     render() {
         return(
             <div className="card">
             <h1>{this.state.color}</h1>
-            <input/>
+            <input onChange={(event) => this.handleInputChage(event)}/> 
             </div>
         )
 
