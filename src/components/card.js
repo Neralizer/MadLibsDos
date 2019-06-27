@@ -9,7 +9,19 @@ class Card extends Component {
             colorOne: "",
             pluralNounOne: "",
             adjOne: "",
-            celebOne: ""
+            celebOne: "",
+            adjTwo: "",
+            nounOne: "",
+            numOne: "",
+            numTwo: "",
+            nounTwo: "",
+            adjThree: "",
+            celebTwo: "",
+            celebThree: "",
+            adjFour: "",
+            nounThree: "",
+            celebFour: "",
+            adjFive: ""
         }
         this.handleInputChage= this.handleInputChage.bind(this); //binds function to our constructor, so it knows state
     }
@@ -24,21 +36,33 @@ class Card extends Component {
                 // The most important prop is onChange, because it says when input is changed, the handleInputChange function is run
 
         const inputData = [
-            {title: "Color", state: "this.state.colorOne", name: "colorOne"},
-            {title: "Plural Noun", state: "this.state.pluralNounOne", name: "pluralNounOne"},
-            {title: "Adjective", state: "this.state.adjOne", name: "adjOne"},
-            {title: "Celebrity", state: "this.state.celebOne", name: "celebOne"}
+            {title: "Color", state: this.state.colorOne, name: "colorOne"},
+            {title: "Plural Noun", state: this.state.pluralNounOne, name: "pluralNounOne"},
+            {title: "Adjective", state: this.state.adjOne, name: "adjOne"},
+            {title: "Celebrity", state: this.state.celebOne, name: "celebOne"},
+
+            {title: "Adjective", state: this.state.adjTwo, name: "adjTwo"},
+            {title: "Noun", state: this.state.nounOne, name: "nounOne"},
+            {title: "Number", state: this.state.numOne, name: "numOne"},
+            {title: "Number", state: this.state.numTwo, name: "numTwo"},
+
+            {title: "Noun", state: this.state.nounTwo, name:"nounTwo"},
+            {title: "Adjective", state: this.state.adjThree, name: "adjThree"},
+            {title: "Celebrity", state: this.state.celebTwo, name: "celebTwo"},
+            {title: "Celebrity", state: this.state.celebThree, name: "celebThree"},
+
+            {title: "Adjective", state: this.state.adjFour, name: "adjFour"},
+            {title: "Noun", state: this.state.nounThree, name: "nounThree"},
+            {title: "Celebrity", state: this.state.celebFour, name: "celebFour"},
+            {title: "Adjective", state: this.state.adjFive, name: "AdjectiveFive"}
         ]
         return (
             <div className="card">
             { // The map function filters through our inputData and returns the input component with title, state, the handleInputChange function, and name
              // I don't understand the index part, but it makes the map function happy. Halfway through video two with nine minutes left
-                inputData.map( (data, index) => {
-                    return <div key={index}>
-                        {data.title}
-                    </div>
-                })
+                inputData.map(data => Input( (data), this.handleInputChage))
             }
+            
             </div>
         )
     }
