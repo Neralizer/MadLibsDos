@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Input from "./input";
+import Content from "./content";
 
 class Card extends Component {
     constructor(){
@@ -23,12 +24,11 @@ class Card extends Component {
             celebFour: "",
             adjFive: ""
         }
-        this.handleInputChage= this.handleInputChage.bind(this); //binds function to our constructor, so it knows state
+        this.handleInputChage = this.handleInputChage.bind(this); //binds function to our constructor, so it knows state
     }
 
     handleInputChage(event) { // I still don't understand what event is. I think event is equal to whatever is put into the input
         this.setState({ [event.target.name]: event.target.value }) //sets state to what is typed into input
-        console.log(this.state);
     }
 
     render() { // Commenting is weird in my React brackets, so I'm explaining up here. The Input component is called and given props below
@@ -59,12 +59,13 @@ class Card extends Component {
         return (
             <div className="card">
             { // The map function filters through our inputData and returns the input component with title, state, the handleInputChange function, and name
-             // I don't understand the index part, but it makes the map function happy. Halfway through video two with nine minutes left
+                // because Input is imported from input.js, the input function looks for title, name, and state, calls it data, and then runs 
+                // the handleInputChange function
                 inputData.map(data => Input( (data), this.handleInputChage))
             }
-            
+            <Content data={this.state}/> 
             </div>
-        )
+        ) //video 3 paused at 2:21 remaining
     }
 }
 
