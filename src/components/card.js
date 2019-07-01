@@ -22,13 +22,20 @@ class Card extends Component {
             adjFour: "",
             nounThree: "",
             celebFour: "",
-            adjFive: ""
+            adjFive: "",
+            contentVisible: false
         }
         this.handleInputChage = this.handleInputChage.bind(this); //binds function to our constructor, so it knows state
+        this.handleFormSubmit = this.handleFormSubmit.bind(this); //binds function to our constructor, so it knows state
     }
 
     handleInputChage(event) { // I still don't understand what event is. I think event is equal to whatever is put into the input
         this.setState({ [event.target.name]: event.target.value }) //sets state to what is typed into input
+    }
+
+    handleFormSubmit(event) {
+        event.preventDefault()
+        this.setState({ contentVisible: !this.state.contentVisible }) //! sets contentVisible to true, and swaps when clicked
     }
 
     render() { // Commenting is weird in my React brackets, so I'm explaining up here. The Input component is called and given props below
@@ -57,14 +64,19 @@ class Card extends Component {
             {title: "Adjective", state: this.state.adjFive, name: "AdjectiveFive"}
         ]
         return (
-            <div className="card">
+            <form onSubmit={this.handleFormSubmit} className="card">
+                <div className="card_inputs">
             { // The map function filters through our inputData and returns the input component with title, state, the handleInputChange function, and name
                 // because Input is imported from input.js, the input function looks for title, name, and state, calls it data, and then runs 
                 // the handleInputChange function
                 inputData.map(data => Input( (data), this.handleInputChage))
             }
-            <Content data={this.state}/> 
-            </div>
+                </div>
+                <button type="submit">{!this.state.contentVisible ? "Generate Mad Lib" : "Clear Mad Lib"}</button>
+                {
+                    this.state.contentVisible ? <Content data={this.state}/> : ""
+                }
+            </form>
         ) //video 3 paused at 2:21 remaining
     }
 }
