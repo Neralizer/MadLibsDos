@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
-class Content extends Component {
+class Content extends Component { //since this is a dynamic component and not simply functional, like input.js, we need to give it a class name and extend component
     render() {
-        const data = this.props.data;
+        const data = this.props.data; //dynamic components have props. Props are declared when the component is referred to elsewhere (e.x. <Content prop1="red"/>)
         return (
             <div>
                 Ladies and gentlemen, this is <b>{data.colorOne}</b> Barber, your 
