@@ -2,29 +2,31 @@ import React, { Component } from "react";
 import Input from "./input";
 import Content from "./content";
 
+const INITIAL_STATE = {
+        colorOne: "",
+        pluralNounOne: "",
+        adjOne: "",
+        celebOne: "",
+        adjTwo: "",
+        nounOne: "",
+        numOne: "",
+        numTwo: "",
+        nounTwo: "",
+        adjThree: "",
+        celebTwo: "",
+        celebThree: "",
+        adjFour: "",
+        nounThree: "",
+        celebFour: "",
+        adjFive: "",
+        contentVisible: false
+}
+
 class Card extends Component {
     constructor(){
         super();
 
-        this.state = {
-            colorOne: "",
-            pluralNounOne: "",
-            adjOne: "",
-            celebOne: "",
-            adjTwo: "",
-            nounOne: "",
-            numOne: "",
-            numTwo: "",
-            nounTwo: "",
-            adjThree: "",
-            celebTwo: "",
-            celebThree: "",
-            adjFour: "",
-            nounThree: "",
-            celebFour: "",
-            adjFive: "",
-            contentVisible: false
-        }
+        this.state = INITIAL_STATE;
         this.handleInputChage = this.handleInputChage.bind(this); //binds function to our constructor, so it knows state
         this.handleFormSubmit = this.handleFormSubmit.bind(this); //binds function to our constructor, so it knows state
     }
@@ -35,9 +37,12 @@ class Card extends Component {
 
     handleFormSubmit(event) {
         event.preventDefault()
-        this.setState({ contentVisible: !this.state.contentVisible }) //! sets contentVisible to true, and swaps when clicked
-    }
-
+        if(this.state.contentVisible) {
+            this.setState(INITIAL_STATE)
+        } else {
+            this.setState({ contentVisible: true }) //
+            }   
+        }
     render() { // Commenting is weird in my React brackets, so I'm explaining up here. The Input component is called and given props below
                 // Those props in order are listed in my input.js file. They are title, state, onChange, and name. 
                 // The most important prop is onChange, because it says when input is changed, the handleInputChange function is run
@@ -61,7 +66,7 @@ class Card extends Component {
             {title: "Adjective", state: this.state.adjFour, name: "adjFour"},
             {title: "Noun", state: this.state.nounThree, name: "nounThree"},
             {title: "Celebrity", state: this.state.celebFour, name: "celebFour"},
-            {title: "Adjective", state: this.state.adjFive, name: "AdjectiveFive"}
+            {title: "Adjective", state: this.state.adjFive, name: "adjFive"}
         ]
         return (
             <form onSubmit={this.handleFormSubmit} className="card">
@@ -72,12 +77,13 @@ class Card extends Component {
                 inputData.map(data => Input( (data), this.handleInputChage))
             }
                 </div>
-                <button type="submit">{!this.state.contentVisible ? "Generate Mad Lib" : "Clear Mad Lib"}</button>
+                <button type="submit">{this.state.contentVisible ? "Clear Mad Lib" : "Generate Mad Lib"}</button> 
                 {
                     this.state.contentVisible ? <Content data={this.state}/> : ""
                 }
-            </form>
-        ) //video 3 paused at 2:21 remaining
+            </form> //the ternary expression on the button says, is contentVisible true? Can you see the content? If so, create a 
+            // clear mad lib button to clear content away. If not, create a generate mad lib button.
+        ) 
     }
 }
 
