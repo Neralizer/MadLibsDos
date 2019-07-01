@@ -30,6 +30,13 @@ body {
 
 .home {
     background-color: rgba(207, 207, 207, 0.596);
+    display: grid;
+    justify-items: center;
+    grid-template-rows: 218px minmax(736px, 994px);
+}
+
+.header {
+    align-self: center;
 }
 
 .card {
@@ -46,5 +53,20 @@ body {
         display: grid;
         grid-template-rows: repeat(4, 1fr);
         grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.input {
+    display: grid;
+    grid-template-columns: 26px 1fr;
+    &_title {
+        grid-column: 2/3;
+    }
+
+    input {
+        grid-column: 2/3;
+    }
+    &_number {
+        grid-column: 1/2;
     }
 }
