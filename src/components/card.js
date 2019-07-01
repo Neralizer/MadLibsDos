@@ -20,7 +20,7 @@ const INITIAL_STATE = {
         celebFour: "",
         adjFive: "",
         contentVisible: false
-}
+} //all of the initial states of our inputs, as well as our inital state of our contentVisible variable
 
 class Card extends Component {
     constructor(){
@@ -74,7 +74,9 @@ class Card extends Component {
             { // The map function filters through our inputData and returns the input component with title, state, the handleInputChange function, and name
                 // because Input is imported from input.js, the input function looks for title, name, and state, calls it data, and then runs 
                 // the handleInputChange function
-                inputData.map(data => Input( (data), this.handleInputChage))
+                inputData.map((data, index) => {
+                    return Input( (data), this.handleInputChage, index)
+                })
             }
                 </div>
                 <button type="submit">{this.state.contentVisible ? "Clear Mad Lib" : "Generate Mad Lib"}</button> 

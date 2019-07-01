@@ -1,10 +1,11 @@
 import React from "react"; //since this is a functional component and not dynamic, no need to import { Component }
 
-const Input = ({title,state,name}, onChange) => { 
+const Input = ({title,state,name}, onChange, index) => { 
         return (
-            <div  key={name} className="input">
+            <div  key={index} className="input">
+                <label className="input_number">{index+1}</label>
                 <input name={name} value={state} onChange={onChange}/>
-                <label>{title}</label>
+                <label className="input_title">{title}</label>
             </div>
         )
     }
