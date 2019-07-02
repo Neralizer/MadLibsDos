@@ -73,18 +73,19 @@ class Card extends Component {
                 <div className="card_inputs">
             { // The map function filters through our inputData and returns the input component with title, state, the handleInputChange function, and name
                 // because Input is imported from input.js, the input function looks for title, name, and state, calls it data, and then runs 
-                // the handleInputChange function
+                // the handleInputChange function. 
                 inputData.map((data, index) => {
                     return Input( (data), this.handleInputChage, index)
                 })
             }
                 </div>
-                <button type="submit">{this.state.contentVisible ? "Clear Mad Lib" : "Generate Mad Lib"}</button> 
+                <button className={`card_${!this.state.contentVisible ? "generate" : "clear"}`} type="submit">{this.state.contentVisible ? "Clear Mad Lib" : "Generate Mad Lib"}</button> 
                 {
                     this.state.contentVisible ? <Content data={this.state}/> : ""
                 }
             </form> //the ternary expression on the button says, is contentVisible true? Can you see the content? If so, create a 
-            // clear mad lib button to clear content away. If not, create a generate mad lib button.
+            // clear mad lib button to clear content away. If not, create a generate mad lib button. Button is given a className of
+            // card_generate if the content is not visible, and card_clear if it is visible. 
         ) 
     }
 }
