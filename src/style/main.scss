@@ -13,6 +13,14 @@ html {
     text-align: center;
 }
 
+.gray {
+    background-color: #b3b3b3;
+}
+
+.green {
+    background-color: #00CB79;
+}
+
 *,
 *::after,
 *::before {
@@ -141,22 +149,35 @@ p {
     }
 
     &_content {
-        display: flex;
         width: 1100px;
         height: 297px;
         background-color: #f2f2f2;
         justify-self: center;
         margin-bottom: 84px;
+        text-align: center;
 
         p {
-            justify-content: center;
             line-height: 29px;
             padding: 50px 47px;
             color: black;
             font-family: "Montserrat";
             font-size: 16px;
             font-weight: 300;
-            
+            width: 1000px;
+        }
+
+        &_label {
+            height: 18px;
+            width: 18px;
+            background-color: black;
+            border-radius: 50%;
+            font-size: 16px;
+            line-height: 20px;
+            text-align: center;
+            color: white;
+            padding: 2px;
+
+            display: inline-block;
         }
     }
 }
@@ -197,7 +218,6 @@ p {
 
     &_number {
         grid-column: 1/2;
-        background-color: #00CB79;
         color: white;
         font-size: 20px;
         line-height: 24px;
