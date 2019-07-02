@@ -4,7 +4,8 @@ class Content extends Component { //since this is a dynamic component and not si
     render() {
         const data = this.props.data; //dynamic components have props. Props are declared when the component is referred to elsewhere (e.x. <Content prop1="red"/>)
         return (
-            <div>
+            <div className="card_content">
+                <p>
                 Ladies and gentlemen, this is <b>{data.colorOne}</b> Barber, your 
                 sportscaster, bringing you the last inning of the game between the 
                 Cleveland <b>{data.pluralNounOne}</b> and the <b>{data.adjOne}</b> Yankees. <b>{data.celebOne}</b> is pitching 
@@ -16,6 +17,7 @@ class Content extends Component { //since this is a dynamic component and not si
                 Cleveland <b>{data.adjFour}</b>-stop. Here's the pitch... and it's hit... a short ground ball 
                 to third <b>{data.nounThree}</b>. <b>{data.celebFour}</b> scoops it up and throws it to first base 
                 for an out, and the game is over. And the Yankees move into second place in the <b>{data.adjFive}</b> League!
+                </p>
             </div>
         )
     }
