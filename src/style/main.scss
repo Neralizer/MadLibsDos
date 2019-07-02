@@ -39,6 +39,9 @@ body {
 
 .header {
     align-self: center;
+    color: white;
+    font-family: "montserrat";
+    text-align: center;
 
     &_skew {
         -webkit-clip-path: polygon(0 0, 100% 0%, 100% 25%, 0% 50%);
@@ -66,6 +69,22 @@ body {
     }
 }
 
+h1 {
+    font-family: "montserrat";
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 44px;
+    text-align: center;
+}
+
+p {
+    color: rgba(255,255,255,0.75);
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 19px;
+    width: 403px;
+}
+
 .card {
     height: 736px;
     width: 1240px;
@@ -86,6 +105,8 @@ body {
 .input {
     display: grid;
     grid-template-columns: 26px 1fr;
+    height: 50px;
+    padding: 25px;
     &_title {
         grid-column: 2/3;
     }
