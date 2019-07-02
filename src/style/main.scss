@@ -8,7 +8,7 @@ html {
     margin: 0;
     padding: 0;
     box-sizing: inherit;
-    font-family: 'montserrat';
+    font-family: 'Montserrat';
 }
 
 body {
@@ -40,7 +40,7 @@ body {
 .header {
     align-self: center;
     color: white;
-    font-family: "montserrat";
+    font-family: "Montserrat";
     text-align: center;
 
     &_skew {
@@ -70,7 +70,7 @@ body {
 }
 
 h1 {
-    font-family: "montserrat";
+    font-family: "Montserrat";
     font-size: 36px;
     font-weight: 500;
     line-height: 44px;
@@ -93,9 +93,10 @@ p {
 
     display: grid;
     grid-template-rows: 1fr 50px;
+    background-color: white;
 
     &_inputs { //this is a way of styling card_inputs, just by saying & to refer to card. interesting.
-        background-color: skyblue;
+        //background-color: skyblue;
         display: grid;
         grid-template-rows: repeat(4, 1fr);
         grid-template-columns: repeat(4, 1fr);
@@ -105,16 +106,33 @@ p {
 .input {
     display: grid;
     grid-template-columns: 26px 1fr;
+    font-family: "Montserrat";
     height: 50px;
     padding: 25px;
+    text-align: center;
+
     &_title {
         grid-column: 2/3;
+        border-top: 1px solid #b3b3b3;
+        color: #b3b3b3;
+        font-size: 12px;
+        font-weight: 600;
     }
 
     input {
         grid-column: 2/3;
+        border: none;
+        font-size: 15px;
+        text-align: center;
     }
     &_number {
         grid-column: 1/2;
+        background-color: #00CB79;
+        color: white;
+        font-size: 20px;
+        line-height: 24px;
+        text-align: center;
+        padding-top: 3px;
+        border-radius: 50%;
     }
 }
